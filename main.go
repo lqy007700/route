@@ -110,14 +110,14 @@ func main() {
 	service.Init()
 
 	// 执行一遍
-	err := repository.NewRouteRepository(db).InitTable()
-	if err != nil {
-		common.Fatal(err)
-		return
-	}
+	//err := repository.NewRouteRepository(db).InitTable()
+	//if err != nil {
+	//	common.Fatal(err)
+	//	return
+	//}
 
 	dataService := service2.NewRouteDataService(repository.NewRouteRepository(db), clientSet)
-	err = route.RegisterRouteHandler(service.Server(), &handler.RouteHandler{RouteDataService: dataService})
+	err := route.RegisterRouteHandler(service.Server(), &handler.RouteHandler{RouteDataService: dataService})
 	if err != nil {
 		common.Fatal(err)
 		return
